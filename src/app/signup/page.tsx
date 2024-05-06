@@ -28,10 +28,11 @@ export default function Signup({
     });
 
     if (error) {
-      return redirect("/login?message=Could not authenticate user");
+      console.warn("error signing up", error);
+      return redirect("/signup?message=Could not sign up user");
     }
 
-    return redirect("/login?message=Check email to continue sign in process");
+    return redirect("/signup?message=Check email to continue sign in process");
   };
 
   return (

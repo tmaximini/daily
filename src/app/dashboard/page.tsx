@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+
 import {
   ChevronLeft,
   ChevronRight,
@@ -13,6 +14,7 @@ import {
   Truck,
 } from "lucide-react";
 
+import { createClient } from "@/utils/supabase/server";
 import { Badge } from "@/components/ui/badge";
 import {
   Breadcrumb,
@@ -63,8 +65,19 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { SheetNavigation, SideNavigation } from "@/components/shared/nav";
+import { redirect } from "next/navigation";
 
-export default function Dashboard() {
+export default async function Dashboard() {
+  const supabase = createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return redirect("/login");
+  }
+
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
