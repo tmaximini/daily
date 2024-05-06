@@ -2,34 +2,17 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import { LoginForm } from "@/components/shared/login-form";
+import { SignupForm } from "@/components/shared/sign-up";
 
-export default function Login({
+export default function Signup({
   searchParams,
 }: {
   searchParams: { message: string };
 }) {
-  const signIn = async (formData: FormData) => {
-    "use server";
-
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
-    const supabase = createClient();
-
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      return redirect("/login?message=Could not authenticate user");
-    }
-
-    return redirect("/protected");
-  };
-
   const signUp = async (formData: FormData) => {
     "use server";
+
+    console.info("form data", formData.get("email"), formData.get("password"));
 
     const origin = headers().get("origin");
     const email = formData.get("email") as string;
@@ -74,7 +57,7 @@ export default function Login({
         Back
       </Link>
 
-      <LoginForm onLogin={signIn} message={searchParams?.message} />
+      <SignupForm onSignup={signUp} message={searchParams?.message} />
     </div>
   );
 }
