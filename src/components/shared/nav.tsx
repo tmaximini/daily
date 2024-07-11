@@ -9,7 +9,8 @@ import {
   LineChart,
   Package2,
   PanelLeft,
-  ShoppingCart,
+  Repeat,
+  Settings,
 } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
@@ -27,54 +28,59 @@ export function SideNavigation() {
 
   return (
     <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
-      <Link
-        href="#"
-        className={isActive("/") ? activeClasses : inactiveClasses}
-      >
-        <Package2 className="h-4 w-4 transition-all group-hover:scale-110" />
-        <span className="sr-only">Daily Hustle</span>
-      </Link>
       <Tooltip>
         <TooltipTrigger asChild>
           <Link
-            href="#"
-            className={isActive("/dashboard") ? activeClasses : inactiveClasses}
+            href="/"
+            className={isActive("/") ? activeClasses : inactiveClasses}
           >
             <Home className="h-4 w-4 group-hover:scale-110" />
-            <span className="sr-only">Dashboard</span>
+            <span className="sr-only">Home</span>
           </Link>
         </TooltipTrigger>
-        <TooltipContent side="right">Dashboard</TooltipContent>
+        <TooltipContent side="right">Home</TooltipContent>
       </Tooltip>
       <Tooltip>
         <TooltipTrigger asChild>
           <Link
-            href="#"
-            className={isActive("/mission") ? activeClasses : inactiveClasses}
-          >
-            <Goal className="h-5 w-5" />
-            <span className="sr-only">Mission</span>
-          </Link>
-        </TooltipTrigger>
-        <TooltipContent side="right">Mission</TooltipContent>
-      </Tooltip>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Link
-            href="#"
-            className={isActive("/checkin") ? activeClasses : inactiveClasses}
+            href="/check-in"
+            className={isActive("/check-in") ? activeClasses : inactiveClasses}
           >
             <CalendarDays className="h-5 w-5" />
-            <span className="sr-only">Daily Checkin</span>
+            <span className="sr-only">Check-in</span>
           </Link>
         </TooltipTrigger>
-        <TooltipContent side="right">Daily Checkin</TooltipContent>
+        <TooltipContent side="right">Check-in</TooltipContent>
+      </Tooltip>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Link
+            href="/goals"
+            className={isActive("/goals") ? activeClasses : inactiveClasses}
+          >
+            <Goal className="h-5 w-5" />
+            <span className="sr-only">Goals</span>
+          </Link>
+        </TooltipTrigger>
+        <TooltipContent side="right">Goals</TooltipContent>
+      </Tooltip>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Link
+            href="/habits"
+            className={isActive("/habits") ? activeClasses : inactiveClasses}
+          >
+            <Repeat className="h-5 w-5" />
+            <span className="sr-only">Habits</span>
+          </Link>
+        </TooltipTrigger>
+        <TooltipContent side="right">Habits</TooltipContent>
       </Tooltip>
 
       <Tooltip>
         <TooltipTrigger asChild>
           <Link
-            href="#"
+            href="/analytics"
             className={isActive("/analytics") ? activeClasses : inactiveClasses}
           >
             <LineChart className="h-5 w-5" />
@@ -82,6 +88,18 @@ export function SideNavigation() {
           </Link>
         </TooltipTrigger>
         <TooltipContent side="right">Analytics</TooltipContent>
+      </Tooltip>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Link
+            href="/settings"
+            className={isActive("/settings") ? activeClasses : inactiveClasses}
+          >
+            <Settings className="h-5 w-5" />
+            <span className="sr-only">Settings</span>
+          </Link>
+        </TooltipTrigger>
+        <TooltipContent side="right">Settings</TooltipContent>
       </Tooltip>
     </nav>
   );
@@ -99,45 +117,46 @@ export function SheetNavigation() {
       <SheetContent side="left" className="sm:max-w-xs">
         <nav className="grid gap-6 text-lg font-medium">
           <Link
-            href="#"
-            className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
-          >
-            <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
-            <span className="sr-only">Daily Hustle</span>
-          </Link>
-          <Link
-            href="#"
+            href="/"
             className="flex items-center gap-4 px-2.5 text-foreground"
           >
             <Home className="h-5 w-5" />
-            Dashboard
+            Home
           </Link>
           <Link
-            href="#"
-            className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-          >
-            <ShoppingCart className="h-5 w-5" />
-            Orders
-          </Link>
-          <Link
-            href="#"
+            href="/check-in"
             className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
           >
             <CalendarDays className="h-5 w-5" />
-            Daily Checkin
+            Check-in
           </Link>
           <Link
-            href="#"
+            href="/goals"
             className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
           >
             <Goal className="h-5 w-5" />
-            Goal
+            Goals
           </Link>
           <Link
-            href="#"
+            href="/habits"
+            className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+          >
+            <Repeat className="h-5 w-5" />
+            Habits
+          </Link>
+
+          <Link
+            href="/analytics"
             className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
           >
             <LineChart className="h-5 w-5" />
+            Analytics
+          </Link>
+          <Link
+            href="/settings"
+            className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+          >
+            <Settings className="h-5 w-5" />
             Settings
           </Link>
         </nav>

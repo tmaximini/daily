@@ -2,6 +2,7 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { DashboardLayout } from "@/components/layouts/DashboardLayout";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -27,9 +28,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="min-h-screen flex flex-col items-center">
-            <TooltipProvider>{children}</TooltipProvider>
-          </main>
+          <TooltipProvider>
+            <DashboardLayout>{children}</DashboardLayout>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>
