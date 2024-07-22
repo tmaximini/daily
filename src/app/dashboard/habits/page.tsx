@@ -1,3 +1,4 @@
+import formatFrequency from "@/utils/formatFrequency";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
@@ -86,7 +87,7 @@ export default async function HabitsPage() {
                   {userHabit.habit.category.name}
                 </span>
                 <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                  Frequency: {userHabit.frequency}
+                  Frequency: {formatFrequency(userHabit.frequency)}
                 </span>
               </div>
               {userHabit.habit.parent_goal && (

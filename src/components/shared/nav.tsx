@@ -55,8 +55,10 @@ export function SideNavigation() {
       <Tooltip>
         <TooltipTrigger asChild>
           <Link
-            href="/goals"
-            className={isActive("/goals") ? activeClasses : inactiveClasses}
+            href="/dashboard/goals"
+            className={
+              isActive("/dashboard/goals") ? activeClasses : inactiveClasses
+            }
           >
             <Goal className="h-5 w-5" />
             <span className="sr-only">Goals</span>
@@ -67,8 +69,10 @@ export function SideNavigation() {
       <Tooltip>
         <TooltipTrigger asChild>
           <Link
-            href="/habits"
-            className={isActive("/habits") ? activeClasses : inactiveClasses}
+            href="/dashboard/habits"
+            className={
+              isActive("/dashboard/habits") ? activeClasses : inactiveClasses
+            }
           >
             <Repeat className="h-5 w-5" />
             <span className="sr-only">Habits</span>
@@ -80,8 +84,12 @@ export function SideNavigation() {
       <Tooltip>
         <TooltipTrigger asChild>
           <Link
-            href="/analytics"
-            className={isActive("/analytics") ? activeClasses : inactiveClasses}
+            href="/dashboard/dashboard/analytics"
+            className={
+              isActive("/dashboard/dashboard/analytics")
+                ? activeClasses
+                : inactiveClasses
+            }
           >
             <LineChart className="h-5 w-5" />
             <span className="sr-only">Analytics</span>
@@ -131,14 +139,14 @@ export function SheetNavigation() {
             Check-in
           </Link>
           <Link
-            href="/goals"
+            href="/dashboard/oals"
             className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
           >
             <Goal className="h-5 w-5" />
             Goals
           </Link>
           <Link
-            href="/habits"
+            href="/dashboard/habits"
             className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
           >
             <Repeat className="h-5 w-5" />
@@ -146,7 +154,7 @@ export function SheetNavigation() {
           </Link>
 
           <Link
-            href="/analytics"
+            href="/dashboard/analytics"
             className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
           >
             <LineChart className="h-5 w-5" />
